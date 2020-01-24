@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Hiệu ứng 3D</title>
+  <meta name="description" content="Hiệu ứng trình diễn ảnh 3D đẹp mắt chỉ với HTML5 và CSS3" />
+  <meta property="og:description" content="Hiệu ứng trình diễn ảnh 3D đẹp mắt chỉ với HTML5 và CSS3" />
+  <meta property="og:image" content="https://redirect.nhq.vn/demo/screenshot.png" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+  <script type="text/javascript" charset="utf-8">
+    function hasClassName(inElement, inClassName)
+    {
+        var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)');
+        return regExp.test(inElement.className);
+    }
+    function addClassName(inElement, inClassName)
+    {
+        if (!hasClassName(inElement, inClassName))
+            inElement.className = [inElement.className, inClassName].join(' ');
+    }
+    function removeClassName(inElement, inClassName)
+    {
+        if (hasClassName(inElement, inClassName)) {
+            var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)', 'g');
+            var curClasses = inElement.className;
+            inElement.className = curClasses.replace(regExp, ' ');
+        }
+    }
+    function toggleClassName(inElement, inClassName)
+    {
+        if (hasClassName(inElement, inClassName))
+            removeClassName(inElement, inClassName);
+        else
+            addClassName(inElement, inClassName);
+    }
+    function toggleShape()
+    {
+      var shape = document.getElementById('shape');
+      if (hasClassName(shape, 'cube') || hasClassName(shape, 'autoLoad')) {
+    if (hasClassName(shape, 'cube')) {
+      removeClassName(shape, 'cube');
+    }
+    if (hasClassName(shape, 'autoLoad')) {
+      removeClassName(shape, 'autoLoad');
+    }
+        addClassName(shape, 'ring');
+      } else {
+        removeClassName(shape, 'ring');
+        addClassName(shape, 'cube');
+      }
+      
+      var stage = document.getElementById('stage');
+      if (hasClassName(shape, 'ring'))
+        stage.style.webkitTransform = 'translateZ(-200px)';
+      else
+        stage.style.webkitTransform = '';
+    }
+  function downloadLink()
+    {
+      location.href = 'http://redirect.nhq.vn/demo/3d-css.zip';
+    }
+  var count = 0;
+  var timer;
+  function timedCount() {
+    if(count >= 8) {
+      count = 0;
+      autoLoad();
+    } else {
+      count = count + 1;
+    }
+    timer = setTimeout(timedCount, 1000);
+  }
+  function autoLoad() {
+    var shapeTest = document.getElementById('shape');
+    if (hasClassName(shapeTest, 'cube')) {
+      removeClassName(shapeTest, 'cube');
+      addClassName(shapeTest, 'autoLoad');
+    } else {
+      toggleShape();
+    }
+  }
+  </script>
+</head>
+<body onload="timedCount()">
+  <div id="banner">
+    <img src="images/banner.png"/> 
+  </div>
+
+  <div style="text-align: right;display: none; padding: 15px;"><button onclick="downloadLink()">Download code</button></div>
+  
+  <div id="container">
+    <div id="stage">
+      <div id="shape" class="cube backfaces">
+        <div class="plane one"></div>
+        <div class="plane two"></div>
+        <div class="plane three"></div>
+        <div class="plane four"></div>
+        <div class="plane five"></div>
+        <div class="plane six"></div>
+        <div class="plane seven"></div>
+        <div class="plane eight"></div>
+        <div class="plane nine"></div>
+        <div class="plane ten"></div>
+        <div class="plane eleven"></div>
+        <div class="plane twelve"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="nhac">
+    <audio controls >
+      <source src="nhac/simple love.mp3" type="audio/mp3">
+    </audio>
+    <p>SIMPLE LOVE - Obito x Seachains x Davis x Lena</p>   
+  </div>
+
+  
+    <video width="200px" height="auto" controls>
+      <source src="nhac/video.mp4" type="video/mp4">
+    </video>
+
+    <div class="vidieo">
+    <pre>
+    77647 124 70 1247 7761676 6421,
+    117621119 81 70 24 1192101 
+    12311 6421 11411 70 6761 13137
+    676216 6421 7641176 1276216!
+    <!--thật ra tớ rất thích cậu, nhưng vì tớ là người đến sau nên tớ chỉ biết chúc cậu hạnh phúc!-->
+    </pre>
+  </div>
+ 
+  <div id="a">
+    <p>Chúc mừng sinh nhật Mai, chúc Mai có thật nhiều sức khỏe, luôn học giỏi,vào được trường Đại Học mà mình muốn,có được người mình yêu thật lòng, vạn sự bình an và 1 điều nữa là nhớ giữ gìn sức khỏe,hạn chế rựu bia, đau dạ dầy đấy!.</p>
+  </div>
+
+  <div id="tho">
+    <pre>
+      Được em giúp đỡ trót yếu lòng
+      Đợi em mòn mỏi hạ sang đông
+      Thu lá vàng rơi hoài kỉ niệm
+      <strong>Tựa cây mỉm cười mãi chờ em !.</strong>
+    </pre>
+  </div>
+
+</body>
+</html>
